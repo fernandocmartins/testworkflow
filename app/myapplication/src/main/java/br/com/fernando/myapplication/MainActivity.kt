@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             TestworkflowTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Frio é bom, de verdade",
+                        name = "Frio é bom, de verdade, verdadeira",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
