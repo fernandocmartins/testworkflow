@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Auto Merge
-        uses: pascalgn/automerge-action@v0.15.6
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Ativar Merge Automático
+        run: |
+          gh pr merge ${{ github.event.pull_request.html_url }} --squash --auto
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          mergeMethod: squash
-          requiredLabels: ""
-          approve: false
