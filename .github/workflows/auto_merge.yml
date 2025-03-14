@@ -1,0 +1,20 @@
+name: Auto Merge PR
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  auto-merge:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Auto Merge
+        uses: pascalgn/automerge-action@v0.15.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          mergeMethod: squash
+          requiredLabels: ""
+          approve: false
